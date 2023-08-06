@@ -46,13 +46,22 @@ public class Todo {
     }
 
     public void finishSchedule() {
+        LocalDate today = LocalDate.now();
         System.out.print("완료한 일을 입력하시오: ");
         String fin = s.nextLine();
-        for (Todo finwork : todos){
-            if(fin.equals(finwork.todo)){
-                finwork.todo = fin+"-완료됨"; }
+        for (Todo finwork : todos) {
+            int comparisonResult = today.compareTo(finwork.limitdate);
+            if (fin.equals(finwork.todo)) {
+                if (comparisonResult > 0) {
+                    System.out.println("날짜가 이미 지났습니다.");
+                    finwork.todo = fin + "-기한지남";
+                } else {
+                    finwork.todo = fin + "-완료됨";
+                }
             }
         }
+    }
+
 
     @Override
     public String toString(){
