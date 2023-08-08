@@ -1,12 +1,10 @@
 package forStudy;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Todo {
     Scanner s = new Scanner(System.in);
-    public static ArrayList<Todo> todos = new ArrayList<>();
     String todo;
     int day;
     public static int len = 0;
@@ -27,14 +25,14 @@ public class Todo {
         System.out.print("마감일을 입력하시오: ");
         day = s.nextInt();
         this.limitdate = LocalDate.of(2023, 8, day);
-        todos.add(new Todo(todo,limitdate));
+        Todolist.todos.add(new Todo(todo,limitdate));
         len = 1;
     }
 
     public void changeSchedule() {
         System.out.print("수정할 일을 입력하시오: ");
         String work = s.nextLine();
-        for(Todo newdata : todos){
+        for(Todo newdata : Todolist.todos){
             if (work.equals(newdata.todo)) {
                 System.out.print("할 일을 다시 입력하세요: ");
                 newdata.todo = s.nextLine();
@@ -49,7 +47,7 @@ public class Todo {
         LocalDate today = LocalDate.now();
         System.out.print("완료한 일을 입력하시오: ");
         String fin = s.nextLine();
-        for (Todo finwork : todos) {
+        for (Todo finwork : Todolist.todos) {
             int comparisonResult = today.compareTo(finwork.limitdate);
             if (fin.equals(finwork.todo)) {
                 if (comparisonResult > 0) {
