@@ -19,18 +19,17 @@ public class Main {
             ans = s.nextInt();
             s.nextLine();
             if (ans==1) {
-                user.addUser();
-                s.nextLine(); }
+                user.addUser(); }
             else if (ans==2){
                 user.viewTodoToUser();
             } else if (ans==3){
                 user.addTodoToUser();
             }
             else if (ans==4){
-                user.finishSchedule();
+                //user.finishSchedule();
             }
             else if (ans==5){
-                user.changeSchedule();
+                //user.changeSchedule();
             }
             else if (ans==6) {
                 System.out.println("프로그램을 종료합니다.");

@@ -7,24 +7,21 @@ public class Users extends Todolist {
     Scanner s = new Scanner(System.in);
     ArrayList<Users> userlist = new ArrayList<>();
     ArrayList<Todolist> todolists = new ArrayList<>();
-    Todolist exerciselist;
-    Todolist studylist;
-    Todolist otherlist;
-    Todolist alllist;
+    Todolist exercises;
+    Todolist studies;
+    Todolist others;
 
     public Users() {
     }
 
     public Users(String name) {
         this.name = name;
-        exerciselist = new Todolist();
-        studylist = new Todolist();
-        otherlist = new Todolist();
-        alllist = new Todolist();
-        todolists.add(exerciselist);
-        todolists.add(studylist);
-        todolists.add(otherlist);
-        todolists.add(alllist);
+        exercises = new Todolist();
+        studies = new Todolist();
+        others = new Todolist();
+        todolists.add(exercises);
+        todolists.add(studies);
+        todolists.add(others);
     }
 
     public void addUser() {
@@ -40,13 +37,11 @@ public class Users extends Todolist {
     public Todolist getList(String listType) {
         switch (listType) {
             case "exercise":
-                return exerciselist;
+                return exercises;
             case "study":
-                return studylist;
+                return studies;
             case "other":
-                return otherlist;
-            case "all":
-                return alllist;
+                return others;
             default:
                 return null;
         }
@@ -57,19 +52,16 @@ public class Users extends Todolist {
         String targetname = s.nextLine();
         for (Users target : userlist) {
             if (target.getName().equals(targetname)) {
-                System.out.println("확인할 카테고리 번호를 고르세요(1.운동, 2.학업, 3.그외");
+                System.out.println("확인할 카테고리 번호를 고르세요(1.운동, 2.학업, 3.그외)");
                 int category = s.nextInt();
                 s.nextLine();
                 if (category == 1) {
-                    target.getList("exercise").view();
+                    target.getList("exercise").view(exerciselist);
                 } else if (category == 2) {
-                    target.getList("study").view();
+                    target.getList("study").view(studylist);
                 } else if (category == 3) {
-                    target.getList("other").view();
+                    target.getList("other").view(otherlist);
                 }
-            }
-            else {
-                System.out.println("사용자를 찾을 수 없습니다.");
             }
         }
     }
@@ -78,18 +70,16 @@ public class Users extends Todolist {
         String targetname = s.nextLine();
         for (Users target : userlist) {
             if (target.getName().equals(targetname)) {
-                System.out.println("추가할 할일 카테고리 번호를 고르세요(1.운동, 2.학업, 3.그외");
+                System.out.println("추가할 할일 카테고리 번호를 고르세요(1.운동, 2.학업, 3.그외)");
                 int category = s.nextInt();
+                s.nextLine();
                 if (category == 1) {
-                    target.getList("exercise").addSchedule();
+                    target.getList("exercise").addSchedule(exerciselist);
                 } else if (category == 2) {
-                    target.getList("study").addSchedule();
+                    target.getList("study").addSchedule(studylist);
                 } else if (category == 3) {
-                    target.getList("other").addSchedule();
+                    target.getList("other").addSchedule(otherlist);
                 }
-            }
-            else {
-                System.out.println("사용자를 찾을 수 없습니다.");
             }
         }
     }
