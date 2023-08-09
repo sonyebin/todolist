@@ -26,10 +26,10 @@ public class Main {
                 user.addTodoToUser();
             }
             else if (ans==4){
-                //user.finishSchedule();
+                user.finishUserTodo();
             }
             else if (ans==5){
-                //user.changeSchedule();
+                user.changeUserTodo();
             }
             else if (ans==6) {
                 System.out.println("프로그램을 종료합니다.");

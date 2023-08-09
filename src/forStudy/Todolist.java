@@ -7,9 +7,9 @@ public class Todolist extends Todo {
     private int temp;
     private int least;
     public static ArrayList<Todo> todos = new ArrayList<>();
-    ArrayList<Todo> exerciselist = new ArrayList<>();
-    ArrayList<Todo> studylist = new ArrayList<>();
-    ArrayList<Todo> otherlist = new ArrayList<>();
+    static ArrayList<Todo> exerciselist = new ArrayList<>();
+    static ArrayList<Todo> studylist = new ArrayList<>();
+    static ArrayList<Todo> otherlist = new ArrayList<>();
     public Todolist(){
     }
     public ArrayList<Todo> sortArray(ArrayList<Todo> lists) {

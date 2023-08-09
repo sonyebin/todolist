@@ -21,6 +21,7 @@ public class Todo {
 
 
     public void addSchedule(ArrayList<Todo> lists) {
+        s.nextLine();
         System.out.print("할 일을 입력하시오: ");
         todo = s.nextLine();
         System.out.print("마감일을 입력하시오: ");
@@ -30,6 +31,7 @@ public class Todo {
     }
 
     public void changeSchedule(ArrayList<Todo> lists) {
+        s.nextLine();
         System.out.print("수정할 일을 입력하시오: ");
         String work = s.nextLine();
         for(Todo newdata : lists){
@@ -44,6 +46,7 @@ public class Todo {
     }
 
     public void finishSchedule(ArrayList<Todo> lists) {
+        s.nextLine();
         LocalDate today = LocalDate.now();
         System.out.print("완료한 일을 입력하시오: ");
         String fin = s.nextLine();
@@ -58,6 +61,7 @@ public class Todo {
                 }
             }
         }
+        s.nextLine();
     }
 
 
